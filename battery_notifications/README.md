@@ -1,25 +1,32 @@
-1. Prerequisites
+## Prerequisites
 
 ```
 sudo pacman -S dunst cronie 
 ```
 
-2. Move both scripts to ~/.local/bin
+## Move both scripts to ~/.local/bin
 
+ ![Battery_notify](https://github.com/xyzsuf/scripts/blob/main/battery_notifications/battery_notify.sh)
 
-3. Setting cron tab using cronie 
+ ![Charging_notify](https://github.com/xyzsuf/scripts/blob/main/battery_notifications/charging_notify.sh)
+
+ 
+ ## Setting cron tab using cronie
+
+In a terminal type, 
 
 ```shell
 $ crontab -e 
 ```
 
-4. Inside the crontab 
+Inside the crontab scheduler, schedule it to preferred time. I have set it to 10 minutes
+
 
 ```
 */10 * * * * /home/username/.local/bin/battery_notify
 ```
 
-5. Setting udev rules 
+## Finally, Set udev rules 
 
 ```
 # https://wiki.archlinux.org/title/udev#Triggering_desktop_notifications_from_a_udev_rule
