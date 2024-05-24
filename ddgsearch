@@ -1,0 +1,13 @@
+#!/bin/sh
+
+search_query=$(dmenu -p "DuckDuckGo:")
+
+# Check if the input is empty
+if [ -z "$search_query" ]; then
+  firefox "https://duckduckgo.com/"
+else
+  search_query=$(echo "$search_query" | sed 's/search with ddg: *//')
+  encoded_query=$(echo "$search_query" | sed 's/ /+/g')
+  firefox "https://duckduckgo.com/?q=${encoded_query}"
+fi
+
